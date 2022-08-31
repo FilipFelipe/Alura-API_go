@@ -1,1 +1,1 @@
-web: bin/Alura-AppWeb_go
+web: bin/Alura-API_go
