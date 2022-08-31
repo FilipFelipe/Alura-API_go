@@ -1,0 +1,1 @@
+web: bin/Alura-AppWeb_go
