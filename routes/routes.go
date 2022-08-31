@@ -5,12 +5,15 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
 )
 
 func HandleResquest() {
+	r := mux.NewRouter()
 	Port := os.Getenv("PORT")
-	http.HandleFunc("/", controllers.Home)
-	http.HandleFunc("/api/personalidades", controllers.TodasPersonalidades)
-
-	log.Fatal(http.ListenAndServe(":"+Port, nil))
+	r.HandleFunc("/", controllers.Home)
+	r.HandleFunc("/api/personalidades", controllers.TodasPersonalidades).Methods("Get")
+	r.HandleFunc("/api/personalidades/{id}", controllers.RetornaUmaPersonalidade).Methods("Get")
+	log.Fatal(http.ListenAndServe(":"+Port, r))
 }
