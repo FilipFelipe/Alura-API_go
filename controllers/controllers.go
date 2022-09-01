@@ -4,14 +4,14 @@ import (
 	"Alura-API_go/database"
 	"Alura-API_go/models"
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Home Page")
+	status := "OK"
+	json.NewEncoder(w).Encode(status)
 }
 
 func TodasPersonalidades(w http.ResponseWriter, r *http.Request) {
