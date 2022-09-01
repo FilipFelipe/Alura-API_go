@@ -27,9 +27,9 @@ func ConectaComBancoDeDados() {
 	stringDeConexao := carregaEnv()
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
 	if err != nil {
-		log.Panic("Erro ao conectar com banco de dados")
+		log.Panic("UTC [ERROR] LOG: Erro ao conectar com banco de dados")
 	} else {
-		log.Print("Conectado com sucesso ao banco de dados")
+		log.Print("UTC [INFO] LOG: Conectado com sucesso ao banco de dados")
 	}
 
 }
